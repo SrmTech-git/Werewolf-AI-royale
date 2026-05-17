@@ -1,0 +1,12 @@
+{
+  "_instructions": "Add the 'ai-werewolf' block inside the 'mcpServers' object in your claude_desktop_config.json. The config file is at: %APPDATA%\\Claude\\claude_desktop_config.json on Windows.",
+  "mcpServers": {
+    "ai-werewolf": {
+      "command": "node",
+      "args": ["C:/Users/shann/Repository/MCP Group Game Server/src/index.js"],
+      "env": {
+        "ANTHROPIC_API_KEY": "your_api_key_here"
+      }
+    }
+  }
+}
