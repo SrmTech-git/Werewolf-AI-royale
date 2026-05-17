@@ -1,11 +1,23 @@
 const ROLES = ['werewolf', 'villager', 'villager', 'villager', 'villager', 'villager'];
-const MODELS = [
+
+// Full multi-provider mix — used when OpenAI and/or Gemini keys are present
+const MODELS_FULL = [
   'claude-opus-4-7',
   'claude-sonnet-4-6',
   'claude-haiku-4-5-20251001',
   'gemini-2.5-flash',
   'gpt-4o-mini',
   'gpt-5',
+];
+
+// Anthropic-only fallback — used when only ANTHROPIC_API_KEY is set
+const MODELS_ANTHROPIC_ONLY = [
+  'claude-opus-4-7',
+  'claude-sonnet-4-6',
+  'claude-sonnet-4-6',
+  'claude-haiku-4-5-20251001',
+  'claude-haiku-4-5-20251001',
+  'claude-haiku-4-5-20251001',
 ];
 
 // A different setting each game pulls the AI out of its default "medieval-English" name pool.
@@ -65,11 +77,15 @@ export const state = {
 
   assignRoles() {
     const roles = [...ROLES].sort(() => Math.random() - 0.5);
-    const models = [...MODELS].sort(() => Math.random() - 0.5);
+    const hasOpenAI = !!(process.env.OPENAI_API_KEY);
+    const hasGemini = !!(process.env.GEMINI_API_KEY);
+    const pool = (hasOpenAI || hasGemini) ? MODELS_FULL : MODELS_ANTHROPIC_ONLY;
+    const models = [...pool].sort(() => Math.random() - 0.5);
     _state.players.forEach((p, i) => {
       p.role = roles[i];
       p.model = models[i];
     });
+    return (hasOpenAI || hasGemini) ? 'full' : 'anthropic-only';
   },
 
   setCharacter(playerId, name, trade, backstory) {
