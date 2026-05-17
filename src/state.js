@@ -1,11 +1,13 @@
 const ROLES = ['werewolf', 'villager', 'villager', 'villager', 'villager', 'villager'];
 
-// Full multi-provider mix — used when OpenAI and/or Gemini keys are present
+// Full multi-provider mix — used when OpenAI and/or Gemini keys are present.
+// Gemini dropped: free tier exhausts after ~1 game. gpt-4.1-nano replaces it
+// as the small/fast slot — cheap, no free-tier cap, distinct from gpt-4o-mini.
 const MODELS_FULL = [
   'claude-opus-4-7',
   'claude-sonnet-4-6',
   'claude-haiku-4-5-20251001',
-  'gemini-2.5-flash',
+  'gpt-4.1-nano',
   'gpt-4o-mini',
   'gpt-5',
 ];

@@ -5,7 +5,7 @@
 
 ## What is this?
 
-An MCP server for Claude Desktop. You invoke it, sit back, and watch six AI players play Werewolf against each other. One of them is secretly the werewolf. The rest are villagers trying to find it. You are the narrator — you don't know who the wolf is either.
+An MCP server for Claude Desktop. You invoke it, sit back, and watch six AI players play Werewolf against each other. One of them is secretly the werewolf. The rest are villagers trying to find it. Your Claude Desktop Instance is the narrator — you don't know who the wolf is either.
 
 Every player is a separate API call with their own character, private reasoning notebook, and genuine incentive to win. The werewolf has a real reason to lie. The villagers are doing real inference. Nobody is just roleplaying.
 
@@ -18,7 +18,6 @@ Every player is a separate API call with their own character, private reasoning 
 - At least one API key:
   - **Anthropic** (required) — [console.anthropic.com](https://console.anthropic.com)
   - **OpenAI** (optional) — [platform.openai.com](https://platform.openai.com)
-  - **Google Gemini** (optional) — [aistudio.google.com](https://aistudio.google.com)
 
 ---
 
@@ -73,13 +72,13 @@ The game runs for 10–20 minutes depending on how quickly the village finds the
 
 The server auto-detects which API keys are present and picks the best available model pool.
 
-### Full multi-provider mix (Anthropic + OpenAI or Gemini)
+### Full multi-provider mix (Anthropic + OpenAI)
 | Player | Model |
 |--------|-------|
 | 1 | claude-opus-4-7 |
 | 2 | claude-sonnet-4-6 |
 | 3 | claude-haiku-4-5 |
-| 4 | gemini-2.5-flash |
+| 4 | gpt-4.1-nano |
 | 5 | gpt-4o-mini |
 | 6 | gpt-5 |
 
