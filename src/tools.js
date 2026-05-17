@@ -130,7 +130,7 @@ async function newGame() {
   const mode = state.assignRoles();
 
   const modelLine = mode === 'anthropic-only'
-    ? 'Models: Opus 4.7, Sonnet 4.6 ×2, Haiku 4.5 ×3 — Anthropic-only mode (no OpenAI or Gemini keys detected)'
+    ? 'Models: Opus 4.7, Sonnet 4.6, Opus 4.6, Sonnet 4.5, Opus 4.5, Haiku 4.5 — Anthropic-only mode (6 distinct models, no OpenAI or Gemini keys detected)'
     : 'Models: Opus 4.7, Sonnet 4.6, Haiku 4.5, Gemini 2.5 Flash, GPT-4o-mini, GPT-5 — full multi-provider mix';
 
   const s = state.get();

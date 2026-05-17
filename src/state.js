@@ -10,14 +10,16 @@ const MODELS_FULL = [
   'gpt-5',
 ];
 
-// Anthropic-only fallback — used when only ANTHROPIC_API_KEY is set
+// Anthropic-only fallback — used when only ANTHROPIC_API_KEY is set.
+// 6 distinct models spanning 3 generations: every player gets a unique engine.
+// (Skips claude-opus-4-1 at $15/MTok and the two deprecated claude-*-4-20250514 models.)
 const MODELS_ANTHROPIC_ONLY = [
-  'claude-opus-4-7',
-  'claude-sonnet-4-6',
-  'claude-sonnet-4-6',
-  'claude-haiku-4-5-20251001',
-  'claude-haiku-4-5-20251001',
-  'claude-haiku-4-5-20251001',
+  'claude-opus-4-7',           // Opus, latest
+  'claude-sonnet-4-6',         // Sonnet, latest
+  'claude-opus-4-6',           // Opus, previous gen
+  'claude-sonnet-4-5-20250929', // Sonnet, previous gen
+  'claude-opus-4-5-20251101',  // Opus, older gen
+  'claude-haiku-4-5-20251001', // Haiku, fastest
 ];
 
 // A different setting each game pulls the AI out of its default "medieval-English" name pool.
